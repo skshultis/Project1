@@ -1,0 +1,42 @@
+.quizContainer  {
+  background-color: rgba(0, 3, 10, .9);
+  border-radius: 8px;
+  max-width: 40%;
+  text-align: center;
+  margin: 0 auto;
+}
+
+body {
+  font-size: 30px;
+  font-family: georgia, serif;
+  color: white;
+  background-image: url("sharkBackground.jpg");
+  margin: 25px;
+}
+
+.question  {
+  padding: 25px;
+
+}
+
+.answerPlease  {
+  font-size: 18px;
+}
+
+ul  {
+  list-style-type: none;
+  text-align: left;
+}
+
+button   {
+  background-color: rgb(39, 55, 106);
+  align: center;
+  border-radius: 16px;
+  width: 250px;
+  height: 50px;
+  margin: 25px;
+  border: none;
+  font-family: georgia, serif;
+  color: white;
+  font-size: 20px;
+}
