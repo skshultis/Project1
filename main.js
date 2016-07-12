@@ -6,10 +6,6 @@ var questions = [{
     choices: ["Oceanic Whitetip", "Great White", "Bull shark", "Blacktip"],
     correctAnswer: 0
 },  {
-    question: "Which species is likely responsible for the majority of shark attacks in the US?",
-    choices: ["Nurse shark", "Lemon shark", "Bull shark", "Hammerhead"],
-    correctAnswer: 2
-},  {
     question: "The smallest species of shark is only seven inches long - what is its name?",
     choices: ["Greenland shark", "Japanese Angel shark", "Pale Catshark", "Dwarf Lantern shark"],
     correctAnswer: 3
@@ -49,13 +45,16 @@ var questions = [{
     question: "The female blue shark's skin is three times thicker than that of males of the same species; why?",
     choices: ["To keep her warmer during pregnancy", "Extra fat stores prevent hunger at the time of birth, preventing her from eating her pups", "Reduced risk of injury as a result of males' mating bites", "The extra skin increases bouyancy so that the pups can be born nearer the ocean's surface"],
     correctAnswer: 2
+},  {
+    question: "Most sharks can only live in the ocean, but one species is known for its ability to survive in brackish water. Which one is it?",
+    choices: ["Nurse shark", "Bull shark", "Wobbegong shark", "Southern catshark"],
+    correctAnswer: 1
 
 }];
+
 var currentQuestion = 0;
 var correctAnswers = 0;
 var quizOver = false;
-
-// $(document).ready(function () {
 
     // Display first question
     displayCurrentQuestion();
@@ -81,9 +80,9 @@ var quizOver = false;
 
                 if (currentQuestion < questions.length) {
                     displayCurrentQuestion();
-                } else {
                     displayScore();
-                    //                    $(document).find(".nextButton").toggle();
+                } else {
+                    $(document).find(".nextButton").toggle();
                     $(document).find(".nextQ").text("Play again and increase your score!");
                     quizOver = true;
                 }
@@ -93,11 +92,13 @@ var quizOver = false;
             $(document).find(".nextQ").text("Next Question");
             resetQuiz();
             displayCurrentQuestion();
-            hideScore();
         }
     });
 
-// });
+    function displayScore() {
+        $(document).find(".quizContainer > .result").text("You answered " + correctAnswers + " questions out of " + questions.length + " correctly!");
+        $(document).find(".quizContainer > .result").show();
+    }
 
 // Displays current Q and answers
 function displayCurrentQuestion() {
@@ -124,15 +125,7 @@ function displayCurrentQuestion() {
 function resetQuiz() {
     currentQuestion = 0;
     correctAnswers = 0;
-    hideScore();
+    // hideScore();
 }
 
-function displayScore() {
-    $(document).find(".quizContainer > .result").text("You answered " + correctAnswers + " questions out of: " + questions.length);
-    $(document).find(".quizContainer > .result").show();
-}
-
-function hideScore() {
-    $(document).find(".result").hide();
-}
 });

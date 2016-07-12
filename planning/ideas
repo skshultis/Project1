@@ -1,7 +1,33 @@
 ideas
 
+for a pulldown bar:
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Slide Panel</title>
+        <script type="text/javascript" src="script.js"></script>
+        <link rel="stylesheet" type="text/css" href="stylesheet.css"></link>
+    </head>
+    <body>
+        <div class="panel">
+        <br />
+        <br />
+        <p>Now you see me!</p>
+        </div>
+        <p class="slide"><div class="pull-me">Slide Up/Down</div></p>
+    </body>
+</html>
+
 $(document).ready(function() {
     $('.pull-me').click(function()  {
         $('.panel').slideToggle('slow')
     });
 });
+
+Tuesday Goals:
+  Get running score throughout quiz
+  Write 3 more questions for a total of 15 shark trivia q
+  Clean up and comment code
+  Add question with a photo to be identified by quiz taker
+  
