@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  console.log("Your Mom");
+  // console.log("Your Mom");
 
 var questions = [{
     question: "There are many different types of sharks, but we often only hear about a few of them. About how many different shark species are there?",
@@ -75,6 +75,28 @@ var quizOver = false;
     displayCurrentQuestion();
     // $(this).find(".answerPlease").hide();
 
+    // Displays current Q and answers
+    function displayCurrentQuestion() {
+
+        // console.log("Current question");
+
+        var question = questions[currentQuestion].question;
+        var questionClass = $(document).find(".quizContainer > .question");
+        var answerList = $(document).find(".quizContainer > .answerList");
+        var numChoices = questions[currentQuestion].choices.length;
+
+        // Set the questionClass text to the current question
+        $(questionClass).text(question);
+
+        $(answerList).find("li").remove();
+
+        var choice;
+        for (i = 0; i < numChoices; i++) {
+            choice = questions[currentQuestion].choices[i];
+            $('<li><input type="radio" value=' + i + ' name="dynradio" />' + choice + '</li>').appendTo(answerList);
+        }
+    }
+
     // Clicking next displays next Q
     $(this).find("button").on("click", function () {
         if (!quizOver) {
@@ -116,28 +138,6 @@ var quizOver = false;
         $(document).find(".quizContainer > .result").text("You've answered " + correctAnswers + " questions out of " + questions.length + " correctly!");
         $(document).find(".quizContainer > .result").show();
     }
-
-// Displays current Q and answers
-function displayCurrentQuestion() {
-
-    console.log("Current question");
-
-    var question = questions[currentQuestion].question;
-    var questionClass = $(document).find(".quizContainer > .question");
-    var answerList = $(document).find(".quizContainer > .answerList");
-    var numChoices = questions[currentQuestion].choices.length;
-
-    // Set the questionClass text to the current question
-    $(questionClass).text(question);
-
-    $(answerList).find("li").remove();
-
-    var choice;
-    for (i = 0; i < numChoices; i++) {
-        choice = questions[currentQuestion].choices[i];
-        $('<li><input type="radio" value=' + i + ' name="dynradio" />' + choice + '</li>').appendTo(answerList);
-    }
-}
 
 function resetQuiz() {
     currentQuestion = 0;
