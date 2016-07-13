@@ -2,13 +2,21 @@ $(document).ready(function() {
   console.log("Your Mom");
 
 var questions = [{
-    question: "Which shark species was descibed by Jacques Cousteau as being 'the most dangerous of all sharks'?",
-    choices: ["Oceanic Whitetip", "Great White", "Bull shark", "Blacktip"],
-    correctAnswer: 0
+    question: "There are many different species of sharks, but we often only hear about a few of them. About how many different types of sharks are there?",
+    choices: ["150", "340", "500", "1,200"],
+    correctAnswer: 2
+},  {
+    question: "Which of these large shark species is known as the fastest of the sharks, with a top speed of 46 mph?",
+    choices: ["Caribbean reef shark", "Shortfin Mako", "Gray reef shark", "Goblin shark"],
+    correctAnswer: 1
 },  {
     question: "The smallest species of shark is only seven inches long - what is its name?",
     choices: ["Greenland shark", "Japanese Angel shark", "Pale Catshark", "Dwarf Lantern shark"],
     correctAnswer: 3
+},  {
+    question: "Which shark species was descibed by Jacques Cousteau as being 'the most dangerous of all sharks'?",
+    choices: ["Oceanic Whitetip", "Great White", "Bull shark", "Blacktip"],
+    correctAnswer: 0
 },  {
     question: "Which US state has the largest number of shark attacks per year?",
     choices: ["Florida", "California", "Hawaii", "North Carolina"],
@@ -22,11 +30,7 @@ var questions = [{
     choices: ["Black", "Blue", "Yellow", "Red"],
     correctAnswer: 2
 },  {
-    question: "Which of these large shark species is known as the fastest of the sharks, with a top speed of 46 mph?",
-    choices: ["Caribbean reef shark", "Shortfin Mako", "Gray reef shark", "Goblin shark"],
-    correctAnswer: 1
-},  {
-    question: "Which of these prey is known as the hammerhead's favorite meal?",
+    question: "What prey is known as the hammerhead's favorite meal?",
     choices: ["Stingray", "beachgoer", "Baby hammerhead", "Krill"],
     correctAnswer: 0
 },  {
@@ -61,11 +65,12 @@ var quizOver = false;
     $(this).find(".answerPlease").hide();
 
     // Clicking next displays next Q
-    $(this).find(".nextQ").on("click", function () {
+    $(this).find("button").on("click", function () {
         if (!quizOver) {
 
             value = $("input[type='radio']:checked").val();
 
+            // Tells user to select answer if none is selected before pressing next
             if (value === undefined) {
                 $(document).find(".answerPlease").text("Please select an answer above");
                 $(document).find(".answerPlease").show();
@@ -83,20 +88,20 @@ var quizOver = false;
                     displayScore();
                 } else {
                     $(document).find(".nextButton").toggle();
-                    $(document).find(".nextQ").text("Play again and increase your score!");
+                    $(document).find("button").text("Play again and increase your score!");
                     quizOver = true;
                 }
             }
         } else {
             quizOver = false;
-            $(document).find(".nextQ").text("Next Question");
+            $(document).find("button").text("Next Question");
             resetQuiz();
             displayCurrentQuestion();
         }
     });
 
     function displayScore() {
-        $(document).find(".quizContainer > .result").text("You answered " + correctAnswers + " questions out of " + questions.length + " correctly!");
+        $(document).find(".quizContainer > .result").text("You've answered " + correctAnswers + " questions out of " + questions.length + " correctly!");
         $(document).find(".quizContainer > .result").show();
     }
 
@@ -125,7 +130,6 @@ function displayCurrentQuestion() {
 function resetQuiz() {
     currentQuestion = 0;
     correctAnswers = 0;
-    // hideScore();
 }
 
 });
