@@ -10,7 +10,7 @@ body {
   font-size: 30px;
   font-family: georgia, serif;
   color: white;
-  background-image: url("sharkBackground.jpg");
+  background-image: url("http://i.imgur.com/MxuKXQK.jpg");
   margin: 25px;
 }
 
@@ -39,4 +39,9 @@ button   {
   font-family: georgia, serif;
   color: white;
   font-size: 20px;
+}
+
+.result  {
+  font-size: 18px;
+
 }
