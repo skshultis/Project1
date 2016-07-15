@@ -36,6 +36,9 @@ input[type="radio"] {
     margin-right: 25px;
     margin-bottom: 15px;
     display: inline-block;
+    background-color: red;
+    border-color: yellow;
+    border: 20px;
 }
 
 button   {
